@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div>
+    <header>
       <img src="images/logo.png" alt="Logo" />
-    </div>
+    </header>
   );
 };
 

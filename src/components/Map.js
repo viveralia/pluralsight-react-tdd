@@ -1,9 +1,9 @@
 import React from "react";
 
-const Map = () => {
+const Map = ({ image = "default.jpg" }) => {
   return (
     <div className="MapBox">
-      <img src="images/default.jpg" alt="No map selected" />
+      <img src={`images/${image}`} alt={image} />
     </div>
   );
 };

@@ -2,8 +2,14 @@
   text-align: center;
 }
 
+header > img {
+  width: 100%;
+  max-width: 250px;
+}
+
 .MapBox > img {
-  width: 480px;
+  width: 100%;
+  max-width: 480px;
 }
 
 .LocationButton {

@@ -1,5 +1,7 @@
 // When using enzyme, we don't need to import React-DOM, but we do need shallow
 
+// TODO: Testing React Components not finished, refactor to class component with lifecycle methods
+
 import React from "react";
 import { shallow } from "enzyme";
 import StoreLocator from "../StoreLocator";
@@ -23,14 +25,24 @@ describe("StoreLocator", () => {
   });
 
   // Checks that two buttons are rendering inside this component
-  it("Renders two buttons", () => {
+  it("Renders al least two buttons", () => {
     const buttons = mountedStoreLocator.find("Button");
-    expect(buttons.length).toBe(2);
+    expect(buttons.length).toBeGreaterThanOrEqual(2);
   });
 
   // Checks that only one map is rendering inside the component
   it("Renders only one map", () => {
     const maps = mountedStoreLocator.find("Map");
     expect(maps.length).toBe(1);
+  });
+
+  // Testing API requests in ComponentDidMount
+  it("calls axios.get in component did mount", () => {
+    return mountedStoreLocator
+      .instance()
+      .componentDidMount()
+      .then(() => {
+        expect(axios.get).toHaveBeenCalled();
+      });
   });
 });

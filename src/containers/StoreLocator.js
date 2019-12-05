@@ -19,7 +19,7 @@ const StoreLocator = () => {
       address: undefined
     }
   ]);
-  const [currentMap, setCurrentMap] = useState("none.jpg");
+  const [currentMap, setCurrentMap] = useState("default");
 
   // JSX view
   return (
@@ -27,10 +27,13 @@ const StoreLocator = () => {
       <Header />
       <div>
         {shops.map(({ location }, i) => (
-          <Button key={i} location={location} />
+          <Button key={i} location={location} handleClick={setCurrentMap} />
         ))}
       </div>
-      <Map image={currentMap} />
+      <Map
+        image={`${currentMap.toLowerCase().replace(/ /g, "-")}.jpg`}
+        location="Location"
+      />
     </div>
   );
 };
